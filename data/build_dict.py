@@ -1,10 +1,15 @@
 import json
+import pathlib
+from shutil import copyfile
 author_name='ye11'
-file_name=author_name+'shiji_dict.json'
+# kk 、cc
+file_name=author_name+'_shiji_dict.json'
+if(not pathlib.Path(file_name).exists()):
+    copyfile('shiji_dict.json',file_name)
 if __name__=='__main__':
-
     with open(file_name) as f:
         shiji_dict=json.loads(f.read())
+    print(author_name+'正在编辑:')
     word=''
     while(word!='-1'):
         word=input("输入古文词\n")
